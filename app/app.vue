@@ -1,6 +1,8 @@
 <template>
-  <div>
+  <UApp>
     <NuxtRouteAnnouncer />
-    <NuxtWelcome />
-  </div>
+    <div class="flex items-center justify-center min-h-svh">
+      <UBadge label="Auth coming soon..." />
+    </div>
+  </UApp>
 </template>
