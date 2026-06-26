@@ -33,6 +33,14 @@ import type { AuthFormField } from "@nuxt/ui";
 
 const schema = z
   .object({
+    firstName: z
+      .string({ message: "First name is required" }) // catches undefined case
+      .min(1, "First name is required")
+      .regex(/^[a-zA-Z]+$/, "Letters only"),
+    lastName: z
+      .string({ message: "Last name is required" }) // catches undefined case
+      .min(1, "Last name is required")
+      .regex(/^[a-zA-Z]+$/, "Letters only"),
     email: z
       .string({ message: "Email is required" }) // catches undefined case
       .min(1, "Email is required")
@@ -64,6 +72,8 @@ const strength = computed(() =>
 );
 
 const fields = ref<AuthFormField[]>([
+  { name: "firstName", type: "text", label: "Name" },
+  { name: "lastName", type: "text", label: "Surname" },
   {
     name: "email",
     type: "text",
