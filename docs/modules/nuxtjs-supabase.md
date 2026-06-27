@@ -1,0 +1,10 @@
+- https://supabase.nuxtjs.org/getting-started/introduction
+- https://supabase.nuxtjs.org/getting-started/authentication
+- https://supabase.nuxtjs.org/composables/usesupabaseclient
+- https://supabase.nuxtjs.org/composables/usesupabasecookieredirect
+- https://supabase.nuxtjs.org/composables/usesupabasesession
+- https://supabase.nuxtjs.org/composables/usesupabaseuser
+- https://supabase.nuxtjs.org/services/serversupabaseclient
+- https://supabase.nuxtjs.org/services/serversupabaseservicerole
+- https://supabase.nuxtjs.org/services/serversupabasesession
+- https://supabase.nuxtjs.org/services/serversupabaseuser

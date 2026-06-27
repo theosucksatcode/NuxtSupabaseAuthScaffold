@@ -22,5 +22,15 @@ export default defineAppConfig({
         },
       ],
     },
+    card: {
+      defaultVariants: {
+        variant: "subtle",
+      },
+    },
+    alert: {
+      defaultVariants: {
+        variant: "soft",
+      },
+    },
   },
 });
