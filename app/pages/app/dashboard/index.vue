@@ -1,7 +1,7 @@
 <template>
   <div>
     <p>Welcome, {{ user?.user_metadata?.name }}!</p>
-    <UButton block @click="signOut">Sign out</UButton>
+    <UButton block @click="signOut" loading-auto>Sign out</UButton>
   </div>
 </template>
 
