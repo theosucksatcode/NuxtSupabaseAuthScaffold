@@ -25,3 +25,4 @@ logs
 
 # custom
 supabase
+.mcp.json

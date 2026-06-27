@@ -45,10 +45,12 @@ const schema = z
     name: z
       .string({ message: "Name is required" })
       .min(1, "First name is required")
+      .max(50, "Name is too long")
       .regex(/^[a-zA-Z]+$/, "Letters only"),
     surname: z
       .string({ message: "Surname is required" })
       .min(1, "Last name is required")
+      .max(50, "Surname is too long")
       .regex(/^[a-zA-Z]+$/, "Letters only"),
     email: z
       .string({ message: "Email is required" })

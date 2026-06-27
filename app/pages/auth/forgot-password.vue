@@ -5,5 +5,6 @@
 <script setup lang="ts">
 definePageMeta({
   layout: "centered",
+  middleware: "guest",
 });
 </script>
