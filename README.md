@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./public/mockup.png" alt="App mockup" width="200" />
+  <img src="./public/mockup.png" alt="App mockup" width="250" />
 </div>
 
 ---
@@ -31,7 +31,7 @@ A production ready Nuxt 4 authentication scaffold powered by Supabase.
 
 ## Prerequisites
 
-- Node.js 24.17.0+ (version I used when creating the project)
+- Node.js LTS recommended
 - A [Supabase](https://supabase.com) project (free tier works)
 
 ## Supabase Setup
@@ -87,6 +87,8 @@ npm install
 npm run dev
 ```
 
+> **First time?** The `app/types/database.types.ts` file ships as a generic placeholder. Once your Supabase schema is set up, run `npm run sb-gen:types` to generate accurate types.
+
 ## Project Structure
 
 ```
@@ -106,13 +108,17 @@ app/
 │   ├── SignUp.vue
 │   ├── ForgotPassword.vue
 │   └── Confirm.vue
+├── composables/
+│   └── usePasswordStrength.ts # Shared auth form composable
+├── middleware/
+│   └── guest.ts # Redirects authenticated users away from auth pages
 ├── layouts/
 │   └── centered.vue
+├── utils/
+│   └── auth.ts # Shared auth form utilities
 └── types/
     └── database.types.ts # Auto generated Supabase schema types
 ```
-
----
 
 ## Customization
 

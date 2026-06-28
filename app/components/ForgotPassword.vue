@@ -14,7 +14,7 @@
     </template>
 
     <template #footer>
-      Already have an account?
+      Remember your password?
       <ULink to="/auth/sign-in">Sign in</ULink>
     </template>
   </UAuthForm>
