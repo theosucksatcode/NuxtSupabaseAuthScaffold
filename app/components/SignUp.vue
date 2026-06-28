@@ -130,7 +130,7 @@ const strength = computed(() =>
   })),
 );
 
-const fields = ref<AuthFormField[]>([
+const fields: AuthFormField[] = [
   { name: "name", type: "text", label: "Name" },
   { name: "surname", type: "text", label: "Surname" },
   {
@@ -152,5 +152,5 @@ const fields = ref<AuthFormField[]>([
     },
   } as AuthFormField,
   { name: "confirmPassword", type: "password", label: "Confirm your password" },
-]);
+];
 </script>

@@ -61,7 +61,7 @@ async function onSubmit({ data }: FormSubmitEvent<Schema>) {
   requestSent.value = true;
 }
 
-const fields = ref<AuthFormField[]>([
+const fields: AuthFormField[] = [
   {
     name: "email",
     type: "text",
@@ -72,5 +72,5 @@ const fields = ref<AuthFormField[]>([
       ).value.toLowerCase();
     },
   } as AuthFormField,
-]);
+];
 </script>

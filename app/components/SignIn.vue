@@ -66,7 +66,7 @@ async function onSubmit({ data }: FormSubmitEvent<Schema>) {
   navigateTo("/app/dashboard");
 }
 
-const fields = ref<AuthFormField[]>([
+const fields: AuthFormField[] = [
   {
     name: "email",
     type: "text",
@@ -78,5 +78,5 @@ const fields = ref<AuthFormField[]>([
     },
   } as AuthFormField,
   { name: "password", type: "password", label: "Password" },
-]);
+];
 </script>
