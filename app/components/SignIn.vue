@@ -56,9 +56,11 @@ async function onSubmit({ data }: FormSubmitEvent<Schema>) {
     serverError.value =
       error.code === "invalid_credentials"
         ? "Email or password is incorrect."
-        : error.code === "user_banned"
-          ? "Your account has been disabled. Please contact support."
-          : error.message;
+        : error.code === "email_not_confirmed"
+          ? "Please confirm your email before signing in. Check your inbox."
+          : error.code === "user_banned"
+            ? "Your account has been disabled. Please contact support."
+            : error.message;
     return;
   }
   navigateTo("/app/dashboard");

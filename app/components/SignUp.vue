@@ -1,5 +1,6 @@
 <template>
   <UAuthForm
+    v-if="!confirmationSent"
     title="Get started"
     description="Create a new account"
     :fields="fields"
@@ -31,6 +32,18 @@
       <ULink to="/auth/sign-in">Sign in</ULink>
     </template>
   </UAuthForm>
+
+  <UCard
+    v-else
+    title="Check your inbox"
+    description="We've sent a confirmation link to your email. Click it to activate your account."
+  >
+    <template #footer>
+      <div class="flex justify-end">
+        <ULink to="/auth/sign-in">Back to sign in</ULink>
+      </div>
+    </template>
+  </UCard>
 </template>
 
 <script setup lang="ts">
@@ -39,6 +52,7 @@ import type { AuthFormField, FormSubmitEvent } from "@nuxt/ui";
 
 const client = useSupabaseClient();
 const serverError = ref<string | null>(null);
+const confirmationSent = ref(false);
 
 const schema = z
   .object({
@@ -72,11 +86,12 @@ type Schema = z.infer<typeof schema>;
 
 async function onSubmit({ data }: FormSubmitEvent<Schema>) {
   serverError.value = null;
-  const { error } = await client.auth.signUp({
+  const { data: authData, error } = await client.auth.signUp({
     email: data.email,
     password: data.password,
     options: {
       data: { name: data.name, surname: data.surname },
+      emailRedirectTo: `${window.location.origin}/auth/confirm?type=signup`,
     },
   });
   if (error) {
@@ -89,6 +104,10 @@ async function onSubmit({ data }: FormSubmitEvent<Schema>) {
           : error.code === "signup_disabled"
             ? "New sign-ups are currently disabled. Please try again later."
             : error.message;
+    return;
+  }
+  if (!authData.session) {
+    confirmationSent.value = true;
     return;
   }
   navigateTo("/app/dashboard");

@@ -38,7 +38,7 @@
   <UCard
     v-else
     title="Link expired or invalid"
-    description="This password reset link has expired or has already been used."
+    description="This link has expired or has already been used."
   >
     <template #footer>
       <div class="flex justify-end">
@@ -61,8 +61,12 @@ const hadCode = !!route.query.code; // capture before any router/url cleanup
 
 onMounted(() => {
   if (hadCode) {
-    // user is set if the code exhanged succeeded
-    status.value = user.value ? "recovery" : "invalid";
+    if (route.query.type === "signup") {
+      user.value ? navigateTo("/app/dashboard") : (status.value = "invalid");
+    } else {
+      // user is set if the code exchange succeeded
+      status.value = user.value ? "recovery" : "invalid";
+    }
   } else {
     // direct navigation so send back home
     user.value ? navigateTo("/app/dashboard") : (status.value = "invalid");

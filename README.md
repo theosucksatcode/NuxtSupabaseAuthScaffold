@@ -12,7 +12,7 @@ A production ready Nuxt 4 authentication scaffold powered by Supabase.
 
 - **Sign up**
 - **Sign in**
-- **Recovery methods**
+- **Account recovery methods**
 - **Email confirmation**
 - **Protected routes**
 - **Dark mode**
@@ -31,7 +31,7 @@ A production ready Nuxt 4 authentication scaffold powered by Supabase.
 
 ## Prerequisites
 
-- Node.js 18+
+- Node.js 24.17.0+ (version I used when creating the project)
 - A [Supabase](https://supabase.com) project (free tier works)
 
 ## Supabase Setup
@@ -42,7 +42,7 @@ Go to **Authentication → Providers → Email** and copy the settings below.
 
 ![Email provider settings](./docs/supabase-auth-email-provider-settings.png)
 
-Under **User Signups settings**, decide whether to require email confirmation. I personally don't use it so I haven't tested the flows with it enabled, they should work, they might just need some adjusting to get it dialed.
+Under **User Signups settings**, you can enable or disable email confirmation, both modes are supported. With confirmation on, sign up shows a "check your inbox" screen and the confirmation link lands the user on their dashboard.
 
 ![Sign up settings](./docs/supabase-sign-up-settings.png)
 
