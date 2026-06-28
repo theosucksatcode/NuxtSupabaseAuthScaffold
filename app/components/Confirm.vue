@@ -57,11 +57,13 @@ const user = useSupabaseUser();
 const route = useRoute();
 const serverError = ref<string | null>(null);
 const status = ref<"pending" | "recovery" | "invalid">("pending");
-const hadCode = !!route.query.code; // capture before any router/url cleanup
+// capture 2 values below before any stripping or modification can happen to the url
+const hadCode = !!route.query.code;
+const hadType = route.query.type;
 
 onMounted(() => {
   if (hadCode) {
-    if (route.query.type === "signup") {
+    if (hadType === "signup") {
       user.value ? navigateTo("/app/dashboard") : (status.value = "invalid");
     } else {
       // user is set if the code exchange succeeded
