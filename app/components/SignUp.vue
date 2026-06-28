@@ -59,20 +59,22 @@ const schema = z
     name: z
       .string({ message: "Name is required" })
       .min(1, "First name is required")
-      .max(50, "Name is too long")
-      .regex(/^[a-zA-Z]+$/, "Letters only"),
+      .max(50, "Name is too long"),
     surname: z
       .string({ message: "Surname is required" })
       .min(1, "Last name is required")
-      .max(50, "Surname is too long")
-      .regex(/^[a-zA-Z]+$/, "Letters only"),
+      .max(50, "Surname is too long"),
     email: z
       .string({ message: "Email is required" })
       .min(1, "Email is required")
       .email("Invalid email address"),
     password: z
       .string({ message: "Password is required" })
-      .min(1, "Password is required"), // we only check emptiness so the password help stuff that outlines criteria is visible the whole time when you are typing the password... if the user continues and they didnt satisfy the requirements then the backend will block the operation and let the user know
+      .min(8, "At least 8 characters")
+      .regex(/\d/, "At least 1 number")
+      .regex(/[a-z]/, "At least 1 lowercase letter")
+      .regex(/[A-Z]/, "At least 1 uppercase letter")
+      .regex(/[^a-zA-Z0-9]/, "At least 1 symbol"),
     confirmPassword: z
       .string({ message: "Please confirm your password" })
       .min(1, "Please confirm your password"),
@@ -99,7 +101,7 @@ async function onSubmit({ data }: FormSubmitEvent<Schema>) {
       error.code === "email_exists" ||
       error.message.includes("already registered")
         ? "An account with this email already exists. Try signing in instead."
-        : error.code === "weak_password"
+        : error.code === "weak_password" // in theory should never trigger again
           ? "Your password doesn't meet the requirements. Check the criteria above."
           : error.code === "signup_disabled"
             ? "New sign-ups are currently disabled. Please try again later."
