@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "nuxt dev",
     "postinstall": "nuxt prepare",
-    "sb-gen:types": "node --env-file=.env ./node_modules/.bin/supabase gen types --lang=typescript --project-id sleaaoxlkoambafeypac > app/types/database.types.ts"
+    "sb-gen:types": "set -a && . ./.env && set +a && ./node_modules/.bin/supabase gen types --lang=typescript --project-id $SUPABASE_PROJECT_ID > app/types/database.types.ts"
   },
   "dependencies": {
     "@nuxt/ui": "^4.9.0",

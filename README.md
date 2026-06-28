@@ -77,6 +77,7 @@ Fill in `.env` with your Supabase credentials:
 NUXT_PUBLIC_SUPABASE_URL="https://example.supabase.co"
 NUXT_PUBLIC_SUPABASE_KEY="<your_publishable_key>"
 SUPABASE_ACCESS_TOKEN="sbp_xxxxxxxxxxxxxxxxxxxx" # only needed for type generation
+SUPABASE_PROJECT_ID="<your_project_id>" # only needed for type generation
 ```
 
 Then install and run:
