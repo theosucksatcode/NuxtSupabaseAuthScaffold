@@ -115,20 +115,7 @@ async function onSubmit({ data }: FormSubmitEvent<Schema>) {
   navigateTo("/app/dashboard");
 }
 
-const passwordValue = ref("");
-
-const strength = computed(() =>
-  [
-    { regex: /.{8,}/, text: "At least 8 characters" },
-    { regex: /\d/, text: "At least 1 number" },
-    { regex: /[a-z]/, text: "At least 1 lowercase letter" },
-    { regex: /[A-Z]/, text: "At least 1 uppercase letter" },
-    { regex: /[^a-zA-Z0-9]/, text: "At least 1 symbol" },
-  ].map((req) => ({
-    met: req.regex.test(passwordValue.value),
-    text: req.text,
-  })),
-);
+const { passwordValue, strength } = usePasswordStrength();
 
 const fields: AuthFormField[] = [
   { name: "name", type: "text", label: "Name" },
@@ -137,11 +124,7 @@ const fields: AuthFormField[] = [
     name: "email",
     type: "text",
     label: "Email",
-    onInput: (e: Event) => {
-      (e.target as HTMLInputElement).value = (
-        e.target as HTMLInputElement
-      ).value.toLowerCase();
-    },
+    onInput: emailOnInput,
   } as AuthFormField,
   {
     name: "password",

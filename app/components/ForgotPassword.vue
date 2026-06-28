@@ -66,11 +66,7 @@ const fields: AuthFormField[] = [
     name: "email",
     type: "text",
     label: "Email",
-    onInput: (e: Event) => {
-      (e.target as HTMLInputElement).value = (
-        e.target as HTMLInputElement
-      ).value.toLowerCase();
-    },
+    onInput: emailOnInput,
   } as AuthFormField,
 ];
 </script>
