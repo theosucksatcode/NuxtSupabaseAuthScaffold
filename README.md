@@ -4,7 +4,7 @@
 
 ---
 
-# Nuxt Supabase Auth Module
+# Nuxt Supabase Auth Scaffold
 
 A production ready Nuxt 4 authentication scaffold powered by Supabase.
 
@@ -66,8 +66,8 @@ For the type generation script (`sb-gen:types`) to work, go to **Account → Acc
 ## Installation
 
 ```bash
-git clone https://github.com/theosucksatcode/NuxtSupabaseAuthModule.git
-cd NuxtSupabaseAuthModule
+git clone https://github.com/theosucksatcode/NuxtSupabaseAuthScaffold.git
+cd NuxtSupabaseAuthScaffold
 cp .env.example .env
 ```
 

@@ -1,5 +1,5 @@
 {
-  "name": "NuxtSupabaseAuthModule",
+  "name": "NuxtSupabaseAuthScaffold",
   "type": "module",
   "private": true,
   "scripts": {
