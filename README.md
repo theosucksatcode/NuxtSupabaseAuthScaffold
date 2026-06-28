@@ -8,6 +8,12 @@
 
 A production ready Nuxt 4 authentication scaffold powered by Supabase.
 
+## Live Demo
+
+Try it at **[nuxt-supabase-auth-scaffold.vercel.app](https://nuxt-supabase-auth-scaffold.vercel.app)**
+
+Sign up, sign in, recover a password, and hit the protected dashboard before setting up your own instance.
+
 ## Features
 
 - **Sign up**
