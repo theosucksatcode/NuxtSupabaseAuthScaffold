@@ -9,6 +9,10 @@
     :submit="{ label: 'Sign up' }"
     @submit="onSubmit"
   >
+    <template #email-help>
+      <p>We won't share your email</p>
+    </template>
+
     <template #password-help>
       <ul class="space-y-1.5">
         <li
@@ -18,7 +22,7 @@
           :class="req.met ? 'text-success' : ''"
         >
           <UIcon :name="req.met ? 'i-lucide-check' : 'i-lucide-x'" />
-          <span class="text-xs">{{ req.text }}</span>
+          <span>{{ req.text }}</span>
         </li>
       </ul>
     </template>
@@ -118,22 +122,39 @@ async function onSubmit({ data }: FormSubmitEvent<Schema>) {
 const { passwordValue, strength } = usePasswordStrength();
 
 const fields: AuthFormField[] = [
-  { name: "name", type: "text", label: "Name" },
-  { name: "surname", type: "text", label: "Surname" },
+  {
+    name: "name",
+    type: "text",
+    label: "Name",
+    leadingIcon: "i-lucide-user-pen",
+  },
+  {
+    name: "surname",
+    type: "text",
+    label: "Surname",
+    leadingIcon: "i-lucide-user-pen",
+  },
   {
     name: "email",
     type: "text",
     label: "Email",
+    leadingIcon: "i-lucide-mail",
     onInput: emailOnInput,
   } as AuthFormField,
   {
     name: "password",
     type: "password",
     label: "Password",
+    leadingIcon: "i-lucide-rectangle-ellipsis",
     onInput: (e: Event) => {
       passwordValue.value = (e.target as HTMLInputElement).value;
     },
   } as AuthFormField,
-  { name: "confirmPassword", type: "password", label: "Confirm your password" },
+  {
+    name: "confirmPassword",
+    type: "password",
+    label: "Confirm your password",
+    leadingIcon: "i-lucide-rectangle-ellipsis",
+  },
 ];
 </script>

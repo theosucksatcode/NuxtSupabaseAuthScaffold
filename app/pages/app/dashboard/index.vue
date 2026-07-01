@@ -18,7 +18,8 @@ async function signOut() {
   const { error } = await client.auth.signOut();
   if (error)
     return toast.add({
-      title: "Sign out failed. Please try again.",
+      title: "Sign out failed",
+      description: "Please try signing out again.",
       color: "error",
     });
   navigateTo("/auth/sign-in");

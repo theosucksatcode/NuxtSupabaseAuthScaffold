@@ -11,4 +11,7 @@ export default defineNuxtConfig({
       include: ["/app/**"], // only /app/** routes require auth and everything else is public
     },
   },
+  app: {
+    pageTransition: { name: "page", mode: "out-in" },
+  },
 });

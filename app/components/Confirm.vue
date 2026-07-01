@@ -102,11 +102,17 @@ const fields: AuthFormField[] = [
     name: "password",
     type: "password",
     label: "New password",
+    leadingIcon: "i-lucide-rectangle-ellipsis",
     onInput: (e: Event) => {
       passwordValue.value = (e.target as HTMLInputElement).value;
     },
   } as AuthFormField,
-  { name: "confirmPassword", type: "password", label: "Confirm new password" },
+  {
+    name: "confirmPassword",
+    type: "password",
+    label: "Confirm new password",
+    leadingIcon: "i-lucide-rectangle-ellipsis",
+  },
 ];
 
 async function onSubmit({ data }: FormSubmitEvent<Schema>) {

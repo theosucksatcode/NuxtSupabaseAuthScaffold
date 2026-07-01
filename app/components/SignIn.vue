@@ -12,7 +12,7 @@
       <ULink
         to="/auth/forgot-password"
         class="text-muted no-underline font-normal"
-        >Forgot password?</ULink
+        >Recover my account</ULink
       >
     </template>
 
@@ -71,8 +71,14 @@ const fields: AuthFormField[] = [
     name: "email",
     type: "text",
     label: "Email",
+    leadingIcon: "i-lucide-mail",
     onInput: emailOnInput,
   } as AuthFormField,
-  { name: "password", type: "password", label: "Password" },
+  {
+    name: "password",
+    type: "password",
+    label: "Password",
+    leadingIcon: "i-lucide-rectangle-ellipsis",
+  },
 ];
 </script>

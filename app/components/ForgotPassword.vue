@@ -66,6 +66,7 @@ const fields: AuthFormField[] = [
     name: "email",
     type: "text",
     label: "Email",
+    leadingIcon: "i-lucide-mail",
     onInput: emailOnInput,
   } as AuthFormField,
 ];
